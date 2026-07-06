@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <script>
+        function sendReply(form) {
+            const button = form.querySelector('button');
+            button.innerHTML = 'Sent!';
+            button.disabled = true;
+        }
+        function refreshDashboard() {
+            location.reload();
+        }
+    </script>
+</head>
+<body>
+    <h2>Unread Emails <button onclick="refreshDashboard()">Refresh</button></h2>
+
+    {% for email in emails %}
+        <div style="border:1px solid black; padding:10px; margin:10px;">
+            <p><strong>From:</strong> {{ email.email }}</p>
+            <p>{{ email.text }}</p>
+
+            <form method="POST" action="/reply" onsubmit="sendReply(this)">
+                <input type="hidden" name="email_text" value="{{ email.text }}">
+                <input type="hidden" name="to_email" value="{{ email.email }}">
+                <button type="submit">Send Auto Reply</button>
+            </form>
+        </div>
+    {% endfor %}
+</body>
+</html>
