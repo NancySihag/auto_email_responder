@@ -52,3 +52,15 @@ auto_email_responder/
 │   └── dashboard.html
 │
 └── tests/
+
+Incoming Email
+      ↓
+Email Dashboard
+      ↓
+Extract Email Content
+      ↓
+OpenAI Reply Generation
+      ↓
+Professional Reply
+      ↓
+Send Reply
