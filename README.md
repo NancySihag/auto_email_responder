@@ -1,36 +1,54 @@
-# AI-Powered Gmail Auto-Responder 🤖📧
+# AI Email Responder
 
-An intelligent Flask web application that connects directly to your Gmail account to fetch unread emails, automatically craft context-aware responses using AI, and send replies instantly with a single click.
+A Flask-based email automation demo that combines OpenAI-powered reply generation with a Gmail-style email dashboard.
 
----
+The project demonstrates how AI can be integrated into an email workflow to generate professional responses from incoming messages.
 
-## ✨ Features
-
-*   **Unread Email Dashboard:** Automatically fetches and displays incoming unread emails.
-*   **AI-Generated Replies:** Processes email body text using an advanced AI language model to generate smart, natural-sounding drafts.
-*   **Instant Sending:** One-click reply handling that routes generated messages directly back to the sender.
-*   **Graceful Fallback:** Includes error-handling loops that use a polite, generic auto-reply if the AI service encounters an issue.
+> **Note:** The current version uses mock email data and a simulated send function for safe local development. Gmail API integration is structured in the project but is not currently used by the dashboard.
 
 ---
 
-## 🛠️ Tech Stack
+## Features
 
-*   **Backend:** Python 3 (Flask Framework)
-*   **Email Integration:** Gmail API / Google Client Library (`gmail_service.py`)
-*   **AI Engine:** OpenAI GPT / Google Gemini API (`ai_service.py`)
-*   **Frontend UI:** HTML & CSS Templates (`index.html`, `dashboard.html`)
+- 📧 Email dashboard for reviewing incoming messages
+- 🤖 AI-generated professional email replies using OpenAI
+- ⚡ One-click reply workflow
+- 🛡️ Environment-based API key configuration
+- 🔄 Fallback response when AI generation fails
+- 🧪 Test-ready project structure
+- 🌐 Flask web application with reusable HTML templates
 
 ---
 
-## 🚀 Getting Started
+## Tech Stack
 
-### Prerequisites
-*   Python 3.8 or higher installed on your local machine.
-*   A Google Cloud Project with the **Gmail API** enabled and OAuth 2.0 credentials set up.
+- **Language:** Python 3.12
+- **Backend:** Flask
+- **AI:** OpenAI API
+- **Email Integration:** Gmail API libraries
+- **Frontend:** HTML, CSS, JavaScript
+- **Configuration:** python-dotenv
+- **Testing:** pytest
 
-### Installation
+---
 
-1. **Clone the Repository:**
-   ```bash
-   git clone [https://github.com/nancysihag631-stack/ai_resume_analyzer.git](https://github.com/nancysihag631-stack/ai_resume_analyzer.git)
-   cd ai_resume_analyzer
+## Project Structure
+
+```text
+auto_email_responder/
+│
+├── README.md
+├── requirements.txt
+├── .gitignore
+├── .env.example
+├── .python-version
+│
+├── email_app.py
+├── ai_service.py
+├── gmail_service.py
+│
+├── templates/
+│   ├── index.html
+│   └── dashboard.html
+│
+└── tests/
