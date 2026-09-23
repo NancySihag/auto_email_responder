@@ -1,32 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Dashboard</title>
-    <script>
-        function sendReply(form) {
-            const button = form.querySelector('button');
-            button.innerHTML = 'Sent!';
-            button.disabled = true;
-        }
-        function refreshDashboard() {
-            location.reload();
-        }
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Email Responder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
-    <h2>Unread Emails <button onclick="refreshDashboard()">Refresh</button></h2>
 
-    {% for email in emails %}
-        <div style="border:1px solid black; padding:10px; margin:10px;">
-            <p><strong>From:</strong> {{ email.email }}</p>
-            <p>{{ email.text }}</p>
-
-            <form method="POST" action="/reply" onsubmit="sendReply(this)">
-                <input type="hidden" name="email_text" value="{{ email.text }}">
-                <input type="hidden" name="to_email" value="{{ email.email }}">
-                <button type="submit">Send Auto Reply</button>
-            </form>
+<header class="header">
+    <div class="container header-content">
+        <div>
+            <h1 class="logo">AI Email Responder</h1>
+            <p class="subtitle">AI-powered email workflow automation</p>
         </div>
-    {% endfor %}
+
+        <button class="refresh-btn" onclick="location.reload()">
+            Refresh Inbox
+        </button>
+    </div>
+</header>
+
+<main class="container">
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <h2>Unread Emails</h2>
+
+    {% if emails %}
+
+        {% for email in emails %}
+            <div class="email-card">
+
+                <div class="email-header">
+                    <div>
+                        <div class="email-sender">{{ email.email }}</div>
+                    </div>
+
+                    <span class="email-badge">Unread</span>
+                </div>
+
+                <p class="email-text">
+                    {{ email.text }}
+                </p>
+
+                <form method="POST" action="/reply">
+                    <input
+                        type="hidden"
+                        name="email_text"
+                        value="{{ email.text }}"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="to_email"
+                        value="{{ email.email }}"
+                    >
+
+                    <button class="reply-btn" type="submit">
+                        Generate & Send AI Reply
+                    </button>
+                </form>
+
+            </div>
+        {% endfor %}
+
+    {% else %}
+
+        <div class="empty-state">
+            <h3>No unread emails</h3>
+            <p>Your inbox is currently clear.</p>
+        </div>
+
+    {% endif %}
+
+</main>
+
 </body>
 </html>
