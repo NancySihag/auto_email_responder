@@ -1,10 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>AI Email Assistant</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Email Responder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
-    <h1>Welcome</h1>
-    <a href="/dashboard">Go to Dashboard</a>
+
+<header class="header">
+    <div class="container header-content">
+        <div>
+            <h1 class="logo">AI Email Responder</h1>
+            <p class="subtitle">AI-powered email workflow automation</p>
+        </div>
+
+        <a href="/dashboard" class="refresh-btn">
+            Open Dashboard
+        </a>
+    </div>
+</header>
+
+<main class="container">
+    <section class="email-card">
+        <h2>Automate your email workflow</h2>
+
+        <p class="email-text">
+            Generate professional email replies with AI through a simple
+            Flask-based workflow.
+        </p>
+
+        <a href="/dashboard" class="reply-btn"
+           style="display:block; text-align:center; text-decoration:none;">
+            Open Email Dashboard
+        </a>
+    </section>
+
+    <section class="email-card">
+        <div class="email-header">
+            <h2>Key Features</h2>
+        </div>
+
+        <p class="email-text">
+            📧 Review incoming emails
+        </p>
+
+        <p class="email-text">
+            🤖 Generate AI-powered replies
+        </p>
+
+        <p class="email-text">
+            ⚡ Send replies with one click
+        </p>
+
+        <p class="email-text">
+            🛡️ Keep API credentials in environment variables
+        </p>
+    </section>
+</main>
+
 </body>
 </html>
