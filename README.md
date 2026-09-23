@@ -1,6 +1,6 @@
-# AI Email Responder
+🚀 **Live Demo:** [Try the AI Email Responder](https://auto-email-responder-npnj.onrender.com)
 
-🚀 **Live Demo:** [Try the Auto Email Responder](https://auto-email-responder-npnj.onrender.com)
+# AI Email Responder
 
 A Flask-based email automation demo that combines OpenAI-powered reply generation with a Gmail-style email dashboard.
 
