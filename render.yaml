@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: ai-email-responder
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn email_app:app
