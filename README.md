@@ -1,5 +1,7 @@
 # AI Email Responder
 
+🚀 **Live Demo:** [Try the Auto Email Responder](https://auto-email-responder-npnj.onrender.com)
+
 A Flask-based email automation demo that combines OpenAI-powered reply generation with a Gmail-style email dashboard.
 
 The project demonstrates how AI can be integrated into an email workflow to generate professional responses from incoming messages.
