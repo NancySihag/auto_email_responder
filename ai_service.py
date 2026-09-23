@@ -24,3 +24,4 @@ def generate_reply(email_text):
     )
 
     return response.choices[0].message.content
+

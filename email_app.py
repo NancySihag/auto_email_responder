@@ -1,8 +1,13 @@
+import os
+from dotenv import load_dotenv
 from flask import Flask, render_template, request, redirect
 from gmail_service import get_unread_emails, send_reply
 from ai_service import generate_reply
 
+load_dotenv()
+
 app = Flask(__name__)
+app.secret_key = os.getenv("FLASK_SECRET_KEY")
 
 @app.route("/")
 def index():
